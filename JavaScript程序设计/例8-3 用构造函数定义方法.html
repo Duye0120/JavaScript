@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 首先定义一个函数，他们将被用作方法
+        function Rectangle_area() {
+            return this.width * this.height;
+        }
+        function Rectangle_perimeter() {
+            return 2 * this.width + 2 * this.height;
+        }
+        function Rectangle_set_size(w, h) {
+            this.width = w;
+            this.height = h;
+        }
+        function Rectangle_enlarge() {
+            this.width *= 2;
+            this.height *= 2;
+        }
+        function Reactangle_shrink() {
+            this.width /= 2;
+            this.height /= 2;
+        }
+
+        // 为Rectangle对象定义一个构造函数方法。
+        // 构造函数不仅要初始化属性，还要给方法赋值。
+        function Rectangle(w,h){
+            // 初始化对象的属性
+            this.width = w;
+            this.height = h;
+            // 定义对象的方法。
+            this.area = Rectangle_area;
+            this.perimeter  = Rectangle_perimeter;
+            this.set_size = Rectangle_set_size;
+            this.enlarge = Rectangle_enlarge;
+            this.shrink = Reactangle_shrink;
+        }
+        var r = new Rectangle(2,2);
+        var a = r.area();
+        r.enlarge();
+        var p = r.perimeter();
+        console.log(a);
+        console.log(p);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

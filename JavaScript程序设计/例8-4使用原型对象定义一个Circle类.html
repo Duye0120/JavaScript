@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 为我们的类定义一个构造函数方法
+        // 为它初始化circle对象的属性
+        // 每个CIrcle对象的属性值都不同
+        function Circle(x, y, r) {
+            this.x = x;
+            this.y = y;
+            this.r = r;
+        }
+        // 创建并舍弃初始的Circle对象
+        // 在JavaScript中，这将创建原型对象
+        new Circle(0, 0, 0);
+        // 定义一个常量，及所有Circle对象共享的属性
+        // 事实上，这只是使用了Math.pi
+        Circle.prototype.pi = 3.14159;
+        // 定义一个计算周长的方法
+        // 声明一个函数，然后把它赋给原型对象的一个属性
+        // 注意上面定义常量的用法
+        function Circle_circumference() {
+            return 2 * this.pi * this.r;
+        }
+        Circle.prototype.circumference = Circle_circumference;
+        // 定义另一个方法。这次试用函数直接量来定义函数
+        // 并且试用一步就将它赋给对象的属性。
+        Circle.prototype.area = function () {
+            return this.pi * this.r * this.r;
+        }
+        // Circle类已经定义了
+        // 我们可以实例并调用它的方法
+        var c = new Circle(0.0, 0.0, 1.0);
+        var a = c.area();
+        var p = c.circumference();
+        console.log(a);
+        console.log(p);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

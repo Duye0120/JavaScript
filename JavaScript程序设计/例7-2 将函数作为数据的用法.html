@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 定义了一些简单的函数
+        function add(x, y) { return x + y; };
+        function subtract(x, y) { return x - y; };
+        function multiply(x, y) { return x * y; };
+        function divide(x, y) { return x / y };
+        // 以下函数可以将上面的某个函数作为参数
+        // 它的两个参数是两个运算数
+        function operate(operator, operand1, operand2) {
+            return operator(operand1, operand2);
+        }
+        // 我们可以调用该函数来计算值（2+3） + （4*5）；
+        var i = operate(add, operate(add, 2, 3), operate(multiply, 4, 5));
+        console.log(i);
+
+        //考虑到本例的需要，我们再次实现了这些函数这次，直接使用函数直接量
+        // 我们吧这些函数存放在一个关联数组中
+        var operators = new Object();
+        operators["add"] = function (x, y) { return x + y; };
+        operators["substract"] = function (x, y) { return x - y; };
+        operators["multiply"] = function (x, y) { return x * y; };
+        operators["divide"] = function (x, y) { return x / y; };
+        operators["pow"]  = Math.pow;   //也用于预定义函数
+
+        // 以下的函数将运算符名作为参数，在数组中检索这个运算符
+        // 然后对运算数调用检索到函数
+        // 注意调用这个运算符函数的语法
+        function operate2(op_name,operand1,operand2){
+            if (operators[op_name] == null) {
+                return "unkown oprator"
+            }else{
+                return operators[op_name](operand1,operand2);
+            }
+        }
+        // 我们可以采用如下的方式调用该函数计算值("hello" + " " +"world");
+        var j = operate2("add","hello",operate2("add"," ", "world"))
+        // 使用预定义的Math.pow()函数：
+        var k = operate2("pow",10,2)
+        console.log('---------------');
+        console.log(j);
+        console.log('---------------');
+        console.log(k);
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

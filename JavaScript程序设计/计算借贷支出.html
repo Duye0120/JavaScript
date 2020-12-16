@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loan Calculator</title>
+</head>
+
+<body bgcolor="white">
+    <!-- 以下是一个html表单，用户可以输入数据，JavaScript则可以把计算
+    的结果显示给用户。 -->
+    <form action="" name="loandata">
+        <table>
+            <tr>
+                <td colspan="3"><b>Enter loan information:</b></td>
+            </tr>
+            <tr>
+                <td>1)</td>
+                <td>Amount of the loan (any currency):</td>
+                <td><input type="text" name="principal" size="12" onchange="calculate();"></td>
+            </tr>
+            <tr>
+                <td>2)</td>
+                <td>annual percnetage rate of interest:</td>
+                <td>
+                    <input type="text" name="interest" size="12" onchange="calculate();">
+                </td>
+            </tr>
+            <tr>
+                <td>3)</td>
+                <td>Repayment pericd in years:</td>
+                <td>
+                    <input type="text" name="years" size="12" onchange="calculate();">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="button" value="Compute" onclick="calculate();">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <b>Payment information:</b>
+                </td>
+            </tr>
+            <tr>
+                <td>4)</td>
+                <td>Your mothly payment will be:</td>
+                <td><input type="text" name="payment" size="12"></td>
+            </tr>
+            <tr>
+                <td>5)</td>
+                <td>Your total payment will be:</td>
+                <td><input type="text" name="total" size="12"></td>
+            </tr>
+            <tr>
+                <td>6)</td>
+                <td>Your total interest patments will be:</td>
+                <td><input type="text" name="totalinterest" size="12"></td>
+            </tr>
+        </table>
+    </form>
+    <!-- 以下是JavaScript程序。
+        注意脚本定义的calculate()函数，它由表单中的事件处理器调用
+        该函数用上面的HTML代码中定义的名字应用表单中的域的值 -->
+    <script>
+        function calculate() {
+            //从表单中获得用户输入的数据。假定它们完全有效
+            // 把利息从百分比转换成十进制数
+            // 把年利率转换成月利率
+            // 把年支付转换成月支付
+            var principal = document.loandata.principal.value;
+            var interest = document.loandata.interest.value / 100 / 12;
+            var payments = document.loandata.years.value * 12;
+
+            // 下面计算月支付额，使用了很少的数学函数
+            var x = Math.pow(1 + interest, payments);
+            var monthly = (principal * x * interest) / (x - 1);
+
+            // 检查见过是否是无穷大的数，如果不是，就显示出结果。
+            if (!isNaN(monthly) &&
+                (monthly != Number.POSITIVE_INFINITY) &&
+                (monthly != Number.NEGATIVE_INFINITY)) {
+                document.loandata.payment.value = round(monthly);
+                document.loandata.total.value = round(monthly * payments);
+                document.loandata.totalinterest.value = 
+                round((monthly * payments) - principal);
+            } else {
+                document.loandata.payment.value = " ";
+                document.loandata.total.value = " ";
+                document.loandata.totallinterest.value = " ";
+            }
+        }
+        function round(x) {
+            return Math.round(x*100)/100;
+        }
+    </script>
+</body>
+
+</html>
