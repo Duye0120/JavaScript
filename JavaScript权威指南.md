@@ -526,6 +526,44 @@ JavaScript中的任何对象属性都是实例属性。
 类Circle
 
 ```javascript
+function Circle(radiuds) {
+    this.r = radiuds;
+}
+Circle.PI = 3.14159;
+// 一下的函数将计算圆的面积
+function Circle_area() {
+    return Circle.PI * this.r * this.r;
+}
+// 下面我们通过把函数赋给构造的原型对象使它成为一个实例方法
+Circle.prototype.area = Circle_area;
 
+// 以下是另一个函数，以两个Circle对象作为实际参数，并返回
+// 其中较大的一个
+function Circle_max(a, b) {
+    if (a.r > b.r) {
+        return a;
+    } else {
+        return b;
+    }
+}
+Circle.max = Circle_max;
+// 下面的代码使用了Circle对象的各个域
+var c = new Circle(1.0);
+c.r = 2.2;
+var a = c.area(); 
+var x = Math.exp(Circle.PI);
+var d = new Circle(1.2);
+var bigger = Circle.max(c, d);
 ```
 
+### 超类和子类
+
+每个类都有一个超类，它们从超类中继承属性和方法。
+
+## 对象的属性和方法
+
+JavaScript中所有的对象都由类Object继承而来。
+
+### 1.constructor属性
+
+从JavaScript1.1开始，每个对象都具有constructor属性，用来初始化该对象的构造函数
