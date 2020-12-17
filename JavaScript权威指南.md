@@ -134,6 +134,13 @@ JavaScript有6种简单数据类型：
 6. function表示值为函数
 7. symbol表示符号
 
+## 数值转换
+
+- parseInt
+- parseFloat
+
+
+
 # 第七章 函数
 
 函数是 js 中重要且复杂的部分
