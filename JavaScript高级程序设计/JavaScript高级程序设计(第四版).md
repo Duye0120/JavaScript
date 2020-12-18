@@ -35,4 +35,43 @@ console.log(typeof name2);	//object
 
 除了存储方式不同，原始值和引用值在通过变量复制时也有所不同。
 
-- 复制数值时，如Number类型数据，两个变量可以完全独立使用，互补干扰
+- 复制数值时，如Number类型数据，两个变量可以完全独立使用，互不干扰
+- 把引用值从一个变量变成另一个变量的时候，存储变量的值也会被复制到新变量所在的位置。**这里复制的实际上是一个指针**，所以实际上，这两个只是指向的值是相等的。
+
+例
+
+```javascript
+let obj1 = new Object();
+let obj2 = obj1;
+obj1.name = "test";
+console.log(obj2.name);//test
+obj1.name = "test2";
+console.log(obj1.name);//test2
+console.log(obj2.name);//test2
+```
+
+#### 传递参数
+
+- ECMAScript中所有的参数都是按值传递的。
+- 在按值传递参数时，值会被复制到一个局部变量
+- ECMAScript中函数的参数就是局部变量
+
+#### 确定类型
+
+- typeof操作符在用于检测函数时，也会返回“function”
+- typeof对正则表达式也返回function
+
+### 执行上下文与作用域
+
+- 每个上下文都有一个关联的变量对象
+- 全局上下文：window对象。因此，所有通过var定义的全局变量的函数都会成为window对象的属性和方法。
+- 上下文中的代码执行的时候，会创建变量对象的一个**作用域链**
+
+#### 作用域链增强
+
+### 垃圾回收
+
+JavaScript是使用垃圾回收的语言
+
+- 最常用的垃圾回收策略是**标记清理**
+
