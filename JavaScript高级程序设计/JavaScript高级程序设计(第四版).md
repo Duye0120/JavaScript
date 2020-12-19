@@ -214,6 +214,24 @@ colors[2] = "black";		// 修改第三项
 colors[3] = "brown";		// 创建第四项
 ```
 
+#### 检测数组
+
+在只有一个网页的情况下，使用`instanceof`操作符
+
+```javascript
+if (value instanceof Array){
+    // 操作数组
+}
+```
+
+`Array.isArray()`方法：确定一个值是否为数组，而不用管它是哪个全局执行上下文中创建的
+
+```javascript
+if(Array.isArray(value)){
+    // 操作数组
+}
+```
+
 
 
 
