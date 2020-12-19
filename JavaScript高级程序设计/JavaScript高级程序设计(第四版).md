@@ -129,3 +129,92 @@ JavaScript是使用垃圾回收的语言
 
 `Math.random()`方法返回一个0~1范围内的随机数，包含0但是不包含1
 
+## 第六章  集合引用类型
+
+### Object
+
+- 大多数引用值的实例都是使用Object类型，它也是ES中最常用的类型之一。
+- 适合存储和在应用程序之间交换数据
+
+- 创建Object实例的两种方式
+
+  - 第一种，使用new操作符和Object构造函数
+
+    - ```javascript
+      let person = new Object();
+      person.name = "Duye";
+      person.age = 29;
+      ```
+
+  - 第二种，使用**对象字面量**表示法**更倾向于这一种**
+
+    - ```javascript
+      let person = {
+          name:"Duye",
+          age:20
+      };
+      ```
+
+    - ```javascript
+      function displayInfo(args) {
+          let output = "";
+          if (typeof args.name == "string") {
+          	output += "Name: " + args.name + "\n";
+      	}
+      	if (typeof args.age == "number") {
+      		output += "Age: " + args.age + "\n";
+      	}
+      	alert(output);
+      }
+      displayInfo({
+          name:"Duye",
+          age:20
+      })
+      displayInfo({
+      	name:"test"
+      });
+      ```
+
+### **Array**
+
+- 除了Object，Array是ES中最常用的类型了
+- ES数组也是一组有序的数据，但不同的是，数组中每个槽位可以存储任意类型的数据，比如第一个是字符串，第二个是数值，第三个是对象
+- 数组也可以是动态大小的，会随着数据添加自动增长。
+
+#### 创建数组
+
+```javascript
+// 1.使用Array构造函数
+let colors = new Array();
+let colors = new Array(20);//创建一个初始值length为20的数组
+let colors = new Array("red", "blue", "green");//创建一个包含三个字符串的数组
+// 在使用构造函数时，也可以省略new操作数
+let colors = Array(3);
+
+
+// 另一种使用数组字面量。数组字面量是在中括号中包含以逗号分隔的元素列表
+// 不会调用Array()构造函数
+let colors = ["red", "green", "blue"];
+let name = [];
+let values = [1, 2,]//最后一个逗号的效果，values是一个包含两个值的数组
+```
+
+- ES6新增，用于创建数组的静态方法
+  - `from()`:用于将**数组结构**转换为数组实例
+    - 第一个参数是一个类数组对象，任何可迭代的结构，或者有一个length属性和可索引元素的结构。
+  - `of()`：用于将**一组参数**转换为数组实例
+
+#### 数组索引
+
+```javascript
+//  要取得或设置数组的值，需要使用中括号，并提供相应的数字索引
+let colors = ["red", "green", "blue"];
+alert(colors[0]);			// 显示第一项
+colors[2] = "black";		// 修改第三项
+colors[3] = "brown";		// 创建第四项
+```
+
+
+
+
+
