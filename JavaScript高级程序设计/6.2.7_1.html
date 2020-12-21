@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let person1 = {
+            toLocaleString() {
+                return "duye";
+            },
+            toString() {
+                return "duye1"
+            }
+        };
+        let person2 = {
+            toLocaleString() {
+                return "test";
+            },
+            toString() {
+                return "test_1";
+            }
+        };
+
+        let people = [person1, person2];
+        alert(people);
+        alert(people.toString());
+        alert(people.toLocaleString());
+
+
+        let colors = ["red", "green", "blue"];
+        alert(colors.join(","));
+        alert(colors.join("||"));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
