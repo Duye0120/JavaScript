@@ -264,3 +264,6 @@ let colors = ["red", "green", "blue"];
 alert(colors.join(","));
 alert(colors.join("||"));
 ```
+
+#### 栈方法
+
