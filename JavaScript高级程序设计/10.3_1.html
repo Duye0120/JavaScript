@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function sayHi(name, message) {
+          console.log("hello" + name + "," + message);
+      }
+      // 可以通过arguments[0] 取得相同的值
+      function sayHello(){
+          console.log("hello" + arguments[0] + "," + arguments[1]);
+      }
+      sayHi(1,"duye");
+      sayHello(1,'cyy');
+
+      function foo(){
+          let bar = () => {
+              console.log(arguments[0]);
+          };
+          bar();
+      }
+
+      foo(5);
+    </script>
+  </head>
+  <body></body>
+</html>

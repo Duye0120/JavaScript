@@ -316,7 +316,7 @@ let sum = (num1, num2) =>{
 
 ```
 
-## 10.1 箭头函数
+### 10.1 箭头函数
 
 - 箭头函数实例化的函数对象与正式的函数表达式创建的函数对象行为是相同的。
 - 任何可以使用函数表达式的地方，都可以使用箭头函数
@@ -346,3 +346,54 @@ console.lgo(functionExceptionSum(1,2));
 - 对于只有一个函数的参数来说，可以不写括号
 
 - 没有参数或者多个参数的时候，需要写括号
+
+- 箭头函数可以不用大括号，但是回改变函数的行为
+
+- ```javascript
+  // 以下两种写法都有效，并且返回相应的值
+  let double = (x) => {return x * 2; };
+  let triple = x => 3 * x;
+  ```
+
+- 箭头函数**不能**用作构造函数
+
+### 10.2 函数名
+
+- 函数名就是指向函数的指针，意味着一个函数可以有多个名称
+
+```javascript
+function sum(num1, num2){
+    return num1 + num2;
+}
+console.log(sum(10,10));//20
+
+let anotherSum = sum;
+console.log(anotherSum(10,10));//20
+
+sum = null;
+console.log(anotherSum(10,10));//20
+```
+
+### 10.3 理解参数
+
+- es的参数与大多数的其他语言不同，因为它既不关心传入的参数，也不关心数据类型
+- ES函数的参数在内部表现为数组，函数被调用时总会接收一个数组，但是函数并不关心这个数组中包含什么
+
+### 10.4 没有重载
+
+- ES因为函数没有签名，因此参数是由包含0个或者多个值的数组表示的。
+- 没有函数签名，自然就没有重载。
+
+### 10.5 默认参数值
+
+- ES6支持显示默认参数，只要在函数定义的参数后面用`=`就可以参数赋值
+
+- ```javascript
+  function makeKing(name = 'Henry'){
+      return `king ${name} VIII`;
+  }
+  console.log(makeKing('Louis'));
+  console.log(makeKing());
+  ```
+
+- 
