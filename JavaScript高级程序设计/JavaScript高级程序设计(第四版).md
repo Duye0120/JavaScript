@@ -269,7 +269,7 @@ alert(colors.join("||"));
 
 ## 鉴于目前的学习方法的改变，后边这本书的主要目的在于提升广度而不是宽度
 
-## 第8章  对象、类、与面向对象编程
+## 第8章  对象、类、与面向对象编程(**搁置**)
 
 对象：一组属性的无序集合
 
@@ -278,6 +278,71 @@ alert(colors.join("||"));
 创建自定义对象的通常方式是创建Object的一个新实例
 
 ```javascript
+let person = {
+    name:"duye",
+    age:22,
+    job:"student",
+    sayName(){
+        console.log(this.name);
+    }
+}
+```
+
+## 第10章  函数
+
+- 函数表达式、函数声明及箭头函数
+- 默认参数及扩展操作符
+- 使用函数实现递归
+- 使用闭包实现私有变量
+
+`函数`是es中最有意思的部分，函数实际上是**对象**
+
+```javascript
+//函数通常以函数声明的方式定义
+function sum(num1,num2){
+    return num1+num2;
+}
+
+
+// 函数表达式定义函数
+let sum = function(num1, num2){
+    return num1 + num2;
+};//注意 这里的函数末尾有分号
+
+//使用箭头函数声明函数
+let sum = (num1, num2) =>{
+    return num1 + num2;
+};
 
 ```
 
+## 10.1 箭头函数
+
+- 箭头函数实例化的函数对象与正式的函数表达式创建的函数对象行为是相同的。
+- 任何可以使用函数表达式的地方，都可以使用箭头函数
+
+```javascript
+let arrowSum = (a,b) =>{
+    return a + b;
+};
+
+let functionExceptionSum = function(a, b){
+	return a + b;
+};
+
+console.log(arrowSum(1,2));
+console.lgo(functionExceptionSum(1,2));
+```
+
+- 函数箭头的简洁语法非常适合嵌入式函数的场景
+
+- ```javascript
+  let ints = [1, 2, 3];
+  
+  console.log(ints.map(function(i) {return i + 1;}));
+  console.log(ints.map((i) => {return i + 1}));
+  ```
+
+- 对于只有一个函数的参数来说，可以不写括号
+
+- 没有参数或者多个参数的时候，需要写括号
