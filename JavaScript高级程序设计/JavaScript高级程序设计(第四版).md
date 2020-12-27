@@ -411,3 +411,56 @@ console.log(anotherSum(10,10));//20
 `this`:在标准函数和箭头函数中具有不同的行为
 
 - 标准函数中，`this`引用的是把函数当成方法调用的上下文对象。
+
+### 函数表达式
+
+定义函数的两种方式
+
+1. 函数声明
+
+   1. ```javascript
+      function functionName(arg0, arg1, arg2){
+      	//函数体
+      }
+      ```
+
+   2. 函数声明可以出现在调用它的代码之后
+
+      ```javascript
+      sayHi();
+      function SayHi(){
+          console.log("hello");
+      }
+      ```
+
+      
+
+2. 函数表达式
+
+   1. ```javascript
+      let functionName = function(arg0, arg1, arg2){
+        //函数体  
+      };
+      ```
+
+   2. 这样创建的函数叫做匿名函数
+
+### 递归函数
+
+递归函数通常是一个函数通过名称调用自己
+
+```javascript
+function digui(num){
+    if(num <= 1){
+        return 1;
+    }else {
+		return num * digui(num - 1);
+    }
+}
+```
+
+`arguments.callee`为调用函数本身
+
+### 闭包`*****`
+
+闭包指的是那些引用了另一个函数作用域中变量的函数，通常是嵌套在函数中实现的
