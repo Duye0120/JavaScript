@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        window.identity = "the window";
+        let object = {
+            identity:'my object',
+            getIdentityFunc(){
+                return function(){
+                    return this.identity;
+                }
+            }
+        };
+        console.log(object.getIdentityFunc()());//the window
+
+      window.identity = "the window";
+      let object = {
+        identity: "my object",
+        getIdentityFunc() {
+            let that = this;
+          return function () {
+            return that.identity;
+          };
+        },
+      };
+      console.log(object.getIdentityFunc()()); //my objcet
+    </script>
+  </head>
+  <body></body>
+</html>

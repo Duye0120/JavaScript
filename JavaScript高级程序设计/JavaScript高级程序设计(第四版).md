@@ -464,3 +464,107 @@ function digui(num){
 ### 闭包`*****`
 
 闭包指的是那些引用了另一个函数作用域中变量的函数，通常是嵌套在函数中实现的
+
+闭包就要了解到作用域链
+
+### this
+
+```javascript
+        window.identity = "the window";
+        let object = {
+            identity:'my object',
+            getIdentityFunc(){
+                return function(){
+                    return this.identity;
+                }
+            }
+        };
+        console.log(object.getIdentityFunc()());//the window
+
+      window.identity = "the window";
+      let object = {
+        identity: "my object",
+        getIdentityFunc() {
+            let that = this;
+          return function () {
+            return that.identity;
+          };
+        },
+      };
+      console.log(object.getIdentityFunc()()); //my objcet
+```
+
+- this和arguments都是不能直接在内部函数中访问的。
+
+### IIFE立即调用函数表达式
+
+- 类似于函数声明，但是由于被包含在括号里，所以被解释为函数表达式。
+
+- 紧跟在第一组括号后面的第二个括号会立即调用前面的函数表达式。
+
+- ```javascript
+  (function(){
+      //块级作用域
+  })();
+  ```
+
+
+
+## 第12章 BOM（终于来到了BOM）
+
+- 浏览器对象模型（BOM）
+- BOM事使用js开发web应用程序的核心
+
+### 12.1 window对象
+
+BOM的核心是window对象，表示**浏览器**实例
+
+网页中定义的所有对象、变量和函数都以window作为其Global对象，都可以访问其`parseInt()`等全局方法
+
+
+
+### Global作用域
+
+- 通过**var**声明的所有全局变量和函数都会变成window对象的属性和方法。 
+
+- ```javascript
+  var age = 29;
+  var sayAge = () => alert(this.age);
+  
+  alert(window.age); 	//29
+  sayAge();			//29
+  window.sayAge();	//29
+  ```
+
+- 如果使用let或const替代var，则不会把变量添加给全局对象
+
+- 另外，如果未声明的变量会抛出错误
+
+- js中很多对象都暴露在全局作用域中
+
+### 窗口关系
+
+self始终指向window
+
+### 窗口位置与像素比
+
+window对象的位置可以通过不同的属性和方法来确定
+
+屏幕左侧：screenleft 顶部：screenTop，返回的单位是css
+
+移动窗口：`moveTo()`:接收要移动到的新位置的绝对坐标x和y
+
+​					`moveBy()`：接收相对当前位置在两个方向上移动的像素数
+
+### 窗口大小
+
+现代浏览器支持4个属性
+
+`outerWidth`和`outerHeight`：返回浏览器自身的大小
+
+`innerWidth`和`innerHeight`:返回浏览器窗口中页面视口的大小
+
+  
+
+
+
