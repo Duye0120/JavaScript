@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function a(x){
+            function b(y){
+                function c(z){
+                    console.log(x+y+z);
+                }
+                c(3);
+            }
+            b(2);
+        }
+        a(1);
+
+    </script>
+    <!-- 
+        c可以访问b的y和a的x
+            1. b形成了包含a的闭包，b可以访问a的参量和变量
+            2. c形成了包含b的闭包
+            3. b包含a，所以c也包含a，c可以访问b和a的参数和变量
+     -->
+</body>
+</html>

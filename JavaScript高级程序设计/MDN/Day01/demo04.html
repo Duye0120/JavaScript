@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 下面的变量定义在全局作用域(global scope)中
+      var num1 = 20,
+        num2 = 3,
+        name = "Chamahk";
+
+      // 本函数定义在全局作用域
+      function multiply() {
+        return num1 * num2;
+      }
+
+      multiply(); // 返回 60
+
+      // 嵌套函数的例子
+      function getScore() {
+        var num1 = 2,
+          num2 = 3;
+
+        function add() {
+          return name + " scored " + (num1 + num2);
+        }
+
+        return add();
+      }
+
+      getScore(); // 返回 "Chamahk scored 5"
+    </script>
+  </head>
+  <body></body>
+</html>

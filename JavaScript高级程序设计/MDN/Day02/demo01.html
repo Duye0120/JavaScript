@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addSquares(a,b){
+            function suqare(x){
+                return x * x;
+            }
+            return suqare(a) + suqare(b);
+        }
+
+        a = addSquares(2,3);
+        b = addSquares(4,6);
+        c = addSquares(5,6);
+        let arr =[a,b,c];
+        for(let i of arr){
+            console.log(i);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var createPet = function(name){ // 定义了一个name变量
+            var sex;                    // 定义了一个sex变量
+            return{
+                setName:function(newName){
+                    name = newName;
+                },
+                getName:function(){
+                    return name;
+                },
+                getSex:function(){
+                    return sex;
+                },
+                setSex:function(newSex){
+                    if(typeof newSex == "string"
+                    && (newSex.toLowerCase() == "male"
+                    ||newSex.toLowerCase() == "female")){
+                        sex = newSex;
+                    }
+                }
+            }
+        }
+
+        var pet = createPet("Vivie");
+        pet.getName();
+
+        pet.setName("Oliver");
+        pet.setSex("male");
+        pet.getSex();                   // male
+        pet.getName();                // Oliver
+    </script>
+</body>
+</html>

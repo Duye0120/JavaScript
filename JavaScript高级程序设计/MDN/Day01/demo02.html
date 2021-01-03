@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var Sales = "Toyota";
+      function CarTypes(name) {
+        return name === "Honda" ? name : "Sorry,we don't sell " + name + ".";
+      }
+      var car = {
+        myCar: "Saturn",
+        getCar: CarTypes("Honda"),
+        special: Sales,
+      };
+      console.log(car.myCar);
+      console.log(car.getCar);
+      console.log(car.special);
+    </script>
+  </body>
+</html>

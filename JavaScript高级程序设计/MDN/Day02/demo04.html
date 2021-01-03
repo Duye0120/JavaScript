@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var pet = function(name){ //外部定义了一个name变量
+            var getName = function(){
+                return name; //内部函数可以访问外部定义的name
+            }
+            return getName;
+        };
+        myPet = pet("Vivie");
+
+        console.log(myPet())
+    </script>
+</body>
+</html>
