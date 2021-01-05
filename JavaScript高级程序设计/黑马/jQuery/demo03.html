@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>test1</button>
+    <button>test2</button>
+    <button id="btn3">test3</button>
+    <button>test4</button>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script>
+        var $buttons = $('button')
+        console.log($buttons.length)
+        console.log($buttons[1].innerHTML,$buttons.get(1).innerHTML)
+        console.log($('#btn3').index()) 
+
+    </script>
+</body>
+</html>
