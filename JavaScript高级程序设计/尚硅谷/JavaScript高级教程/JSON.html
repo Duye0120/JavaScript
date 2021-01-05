@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let book = {
+        title: "111111",
+        authors: ["duye", "duye2"],
+        eddition: 4,
+        year: 2017,
+      };
+      let jsonText = JSON.stringify(book);
+      console.log(jsonText);
+      let bookCopy = JSON.parse(jsonText);
+      console.log(bookCopy);
+    </script>
+  </body>
+</html>
