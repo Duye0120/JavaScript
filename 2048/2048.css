@@ -1,0 +1,53 @@
+/* 头部样式 */
+header {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+/* 设置h1标题 */
+header h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+/* 设置游戏按钮样式 */
+header #newgamebutton {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+    padding: 10px 10px;
+    background-color: #8f7a66;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+/* 设置按钮鼠标悬浮样式 */
+header #newgamebutton:hover{
+    background-color: #9f8b77;
+}
+/* 设置游戏分数样式 */
+header p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    margin: 20px auto;
+}
+/* 大盒子的样式 */
+#grid-container{
+    width: 460px;
+    height: 460px;
+    padding: 20px;
+    margin: 50px auto;
+    background-color: #bbada0;
+    border-radius: 10px;
+    position: relative;
+}
+
+.grid-cell{
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    background-color: #ccc0b3;
+    position: absolute;
+}
