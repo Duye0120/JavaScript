@@ -23,6 +23,17 @@ app.post('/server',(request,response)=>{
     response.send("HELLO AJAX POST")
 });
 
+// jQuery 服务
+app.all('/jquery-server',(request,response)=>{
+    // 设置响应头  设置允许跨域
+    response.setHeader('Access-Control-Allow-Origin','*');
+
+
+    const data = {name:'duye'}
+    // 设置响应
+    // response.send('Hello EXPRESS');
+    response.send(JSON.stringify(data))
+});
 // 4.监听端口启动服务
 app.listen(8000,()=>{
     console.log("服务已启动，8000 端口监听中")

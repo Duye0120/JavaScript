@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var color = "blue";
+        function changeColor(){
+            let anotherColor = "red";
+            function swapColor(){
+                let tempColor = anotherColor;
+                anotherColor = color;
+                color = tempColor;
+            }
+            swapColor();
+            console.log(color,anotherColor);
+        }
+        changeColor();
+        console.log(color);
+    </script>
+</body>
+
+</html>
