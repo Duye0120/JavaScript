@@ -59,6 +59,6 @@
 
 ## Promise 关键问题
 
-## Promise 自定义封装
+## Promise 自定义封装(手写Promise)
 
 ## async 与 await

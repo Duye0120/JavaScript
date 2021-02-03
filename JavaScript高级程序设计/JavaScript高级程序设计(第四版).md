@@ -267,6 +267,57 @@ alert(colors.join("||"));
 
 #### 栈方法
 
+```js
+//数据项的插入
+push
+// 数据项的删除（弹出）
+pop
+//提供了
+pop()和push()方法
+```
+
+`push()`方法：接收任意数量的参数，并将它们添加到数组末尾，返回数组的最新长度
+
+`pop()`方法：删除数组的最后一项，同时减少数组的length值，返回被删除的项
+
+#### 队列方法
+
+`shift()`:删除数组的第一项并返回它，然后将数组长度减1
+
+`unshift()`:在数组开头添加任意多个值，然后返回新的数组长度
+
+#### 排序方法
+
+`sort()`&&`reverse()`
+
+```js
+//reverse()将数组反向排列
+let value = [1,2,3,4,5];
+value.reverse();
+alert(values);//5,4,3,2,1
+//sort()将数组按照升序重新排列数组元素
+let value = [0,1,5,10,15];
+value.sort();
+alert(value);//0,1,10,15,5
+
+
+//sort()方法可以接受一个比较函数，用于判断哪个值应该排在前面
+function compare(value1,value2){
+    if(value1< value2){
+        return -1;
+    }else if(value1 > value2){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+let values = [0,1,5,10,15];
+values.sort(compare);
+alert(values);//0,1,5,10,15
+```
+
+
+
 ## 鉴于目前的学习方法的改变，后边这本书的主要目的在于提升广度而不是宽度
 
 ## 第8章  对象、类、与面向对象编程(**搁置**)
