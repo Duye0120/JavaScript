@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Fn() {
+
+        }
+        // 1. 每个函数Function都有一个prototype，即显示原型
+        console.log(Fn.prototype);
+        // 2. 每个实例对象都有一个`__proto__`,可称为隐式原型
+        var fn = new Fn();
+        console.log(fn.__proto__);
+        // 3. 对象的隐式原型的值为其对应构造函数的显示原型的值
+        console.log(Fn.prototype === fn.__proto__);
+    </script>
+</body>
+
+</html>
